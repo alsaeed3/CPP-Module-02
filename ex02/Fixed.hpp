@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 06:59:50 by alsaeed           #+#    #+#             */
-/*   Updated: 2024/04/23 02:56:10 by alsaeed          ###   ########.fr       */
+/*   Updated: 2024/05/01 12:16:02 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ class	Fixed {
 		/*********************************/
 		/* increment/decrement operators */
 		/*********************************/
-		Fixed&				operator++( void );
+		Fixed				operator++( void );
 		Fixed				operator++( int );
 
-		Fixed&				operator--( void );
+		Fixed				operator--( void );
 		Fixed				operator--( int );
 
 		/****************************/

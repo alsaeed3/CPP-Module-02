@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 06:59:35 by alsaeed           #+#    #+#             */
-/*   Updated: 2024/04/19 15:12:05 by alsaeed          ###   ########.fr       */
+/*   Updated: 2024/05/01 11:36:17 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int main( void )
 {
     Fixed a;
-    Fixed const b( 10 ); // 10 * 256 = 2560
-    Fixed const c( 42.42f ); // static_cast<int>(roundf(42.42 * (1 << 8))) or 42.42 * 256 ≈ 10860
-    Fixed const d( b ); // 2560 from b
+    Fixed const b( 10 );
+    Fixed const c( 42.42f );
+    Fixed const d( b );
 
-    a = Fixed( 1234.4321f ); // 316014
+    a = Fixed( 1234.4321f );
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;
     std::cout << "c is " << c << std::endl;

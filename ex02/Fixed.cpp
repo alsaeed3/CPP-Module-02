@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 07:00:02 by alsaeed           #+#    #+#             */
-/*   Updated: 2024/04/23 02:52:19 by alsaeed          ###   ########.fr       */
+/*   Updated: 2024/05/01 12:20:48 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 
 Fixed::Fixed( void ) : _value( 0 ) {
 
-	std::cout << "Default constructor called" << std::endl;
-
 	return;
 }
 
 Fixed::Fixed( const int integerValue ) : _value( integerValue << Fixed::_fractionalBits ) {
 
-	std::cout << "Int constructor called" << std::endl;
-
 	return;
 }
 
 Fixed::Fixed( const float floatValue ) : _value( static_cast<int>( roundf( floatValue * ( 1 << Fixed::_fractionalBits ) ) ) ) {
-
-	std::cout << "Float constructor called" << std::endl;
 
 	return;
 }
@@ -37,7 +31,6 @@ Fixed::Fixed( const float floatValue ) : _value( static_cast<int>( roundf( float
 /* It's used when we want to create a new object as a copy of an existing object */
 Fixed::Fixed( const Fixed& fixed ) {
 
-	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 
 	return;
@@ -46,8 +39,6 @@ Fixed::Fixed( const Fixed& fixed ) {
 /* copy assignment operator */
 /* It's used when we want to copy the value from one object to another existing object  */
 Fixed&			Fixed::operator=( const Fixed& fixed ) {
-
-	std::cout << "Copy assignment operator called" << std::endl;
 	
 	if ( this != &fixed )
 		this->_value = fixed.getRawBits();
@@ -68,21 +59,15 @@ std::ostream&	operator<<( std::ostream& ostream, const Fixed& fixed ) {
 
 Fixed::~Fixed( void ) {
 
-	std::cout << "Destructor called" << std::endl;
-
 	return;
 }
 
 int				Fixed::getRawBits( void ) const {
 
-	std::cout << "getRawBits member function called" << std::endl;
-
 	return this->_value;
 }
 
 void			Fixed::setRawBits( int const raw ) {
-
-	std::cout << "setRawBits member function called" << std::endl;
 
 	this->_value = raw;
 
@@ -158,30 +143,36 @@ Fixed			Fixed::operator/( const Fixed& numB ) {
 /*********************************/
 /* increment/decrement operators */
 /*********************************/
-Fixed&			Fixed::operator++( void ) {
+Fixed			Fixed::operator++( void ) {
 
-	++(_value);
-	return *this;
+	Fixed inc;
+
+	inc._value = ++this->_value;
+	return inc;
 }
 
 Fixed			Fixed::operator++( int ) {
 
-	Fixed copy_a = (*this);
-	++(*this);
-	return copy_a;
+	Fixed inc;
+
+	inc._value = this->_value++;
+	return inc;
 }
 
-Fixed&			Fixed::operator--( void ) {
+Fixed			Fixed::operator--( void ) {
 
-	--(_value);
-	return *this;
+	Fixed dec;
+
+	dec._value = --this->_value;
+	return dec;
 }
 
 Fixed			Fixed::operator--( int ) {
 
-	Fixed	copy_a = (*this);
-	--(*this);
-	return copy_a;
+	Fixed dec;
+
+	dec._value = this->_value--;
+	return dec;
 }
 
 /****************************/
@@ -195,7 +186,10 @@ Fixed&			Fixed::max( Fixed& fixed1, Fixed& fixed2 ) {
 
 const Fixed&	Fixed::max( const Fixed& fixed1, const Fixed& fixed2 ) {
 
-	return fixed1 > fixed2 ? fixed1 : fixed2;
+	if ( fixed1.getRawBits() > fixed2.getRawBits() )
+		return fixed1;
+	else
+		return fixed2;
 }
 
 Fixed&			Fixed::min( Fixed& fixed1, Fixed& fixed2 ) {
@@ -205,5 +199,8 @@ Fixed&			Fixed::min( Fixed& fixed1, Fixed& fixed2 ) {
 
 const Fixed&	Fixed::min( const Fixed& fixed1, const Fixed& fixed2 ) {
 
-	return fixed1 < fixed2 ? fixed1 : fixed2;
+	if ( fixed1.getRawBits() < fixed2.getRawBits() )
+		return fixed1;
+	else
+		return fixed2;
 }

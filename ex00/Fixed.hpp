@@ -6,7 +6,7 @@
 /*   By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 06:59:50 by alsaeed           #+#    #+#             */
-/*   Updated: 2024/04/19 12:37:57 by alsaeed          ###   ########.fr       */
+/*   Updated: 2024/05/01 11:30:24 by alsaeed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class	Fixed {
 
     public:
 
-        Fixed();
+        Fixed( void );
         Fixed( const Fixed& fixed );
         Fixed& operator=( const Fixed& fixed );
-        ~Fixed();
+        ~Fixed( void );
         int getRawBits( void ) const;
         void setRawBits( int const raw );
 };
