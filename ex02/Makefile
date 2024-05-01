@@ -6,11 +6,11 @@
 #    By: alsaeed <alsaeed@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 06:59:38 by alsaeed           #+#    #+#              #
-#    Updated: 2024/04/19 12:30:18 by alsaeed          ###   ########.fr        #
+#    Updated: 2024/05/01 11:26:22 by alsaeed          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX 		= g++
+CXX 		= c++
 CXXFLAGS 	= -Wall -Werror -Wextra -std=c++98
 
 # colors #
